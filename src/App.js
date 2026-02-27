@@ -1,0 +1,28 @@
+import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
+import HomePage from 'scenes/homePage';
+import LoginPage from 'scenes/loginPage';
+import ProfilePage from 'scenes/profilePage';
+import { useMemo } from "react";
+import { useSelect } from 'react-redux';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { createTheme } from '@mui/material';
+import { themeSettings } from './theme';
+
+function App() {
+
+    const mode = useSelect((state) => state.mode);
+  return (
+    <div className="app">
+      <BrowserRouter>
+        <Routes>
+          {/* This is a route */}
+          <Route path="/" element={<LoginPage/>} />
+          <Route path="/home" element={<HomePage/>} />
+          <Route path="/profile/:userId" element={<ProfilePage/>} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+}
+
+export default App;

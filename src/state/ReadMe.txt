@@ -1,0 +1,1 @@
+This folder is for redux and data state
